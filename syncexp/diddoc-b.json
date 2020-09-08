@@ -1,0 +1,35 @@
+{
+  "authorization": {
+      "profiles": [
+          {"key": "#X.1", "roles": ["edge"]},
+          {"key": "#X.2", "roles": ["cloud"]},
+          {"key": "#X.3", "roles": ["edge"]},
+          {"key": "#X.4", "roles": ["offline"]}
+      ],
+      "rules": [
+          {
+              "grant": ["register"],
+              "when": {"id": "#X.1"},
+              "id": "7ac4c6be"
+          },
+          {
+              "grant": ["route", "authcrypt"],
+              "when": {"roles": "cloud"},
+              "id": "98c2c9cc"
+          },
+          {
+              "grant": ["authcrypt", "plaintext", "sign"],
+              "when": {"roles": "edge"},
+              "id": "e1e7d7bc"
+          },
+          {
+              "grant": ["key_admin", "se_admin", "rule_admin"],
+              "when": {
+                  "any": [{"roles": "offline"}, {"roles":  "edge"}],
+                  "n": 2
+              },
+              "id": "8586d26c"
+          }
+      ]
+  }
+}

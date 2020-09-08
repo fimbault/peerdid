@@ -3,10 +3,10 @@ Test peerDID (fork) - small experiment
 
 ## setup
 
-> pip install -r requirements.txt
-> python setup.py install
-> cd syncexp
-> python syncexp.py
+- pip install -r requirements.txt
+- python setup.py install
+- cd syncexp
+- python syncexp.py
 
 ## notes
 
